@@ -27,7 +27,7 @@ module.exports = function(grunt) {
     },
 
     eslint: {
-      target: ['public/client/app.js']
+      target: ['client/app.js']
     },
 
     cssmin: {
@@ -36,7 +36,7 @@ module.exports = function(grunt) {
     watch: {
       scripts: {
         files: [
-          'public/client/**/*.js',
+          'client/**/*.js',
           'public/lib/**/*.js',
         ],
         tasks: [
