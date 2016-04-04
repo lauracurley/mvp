@@ -13,8 +13,7 @@ var practiceSchema = new mongoose.Schema({
   minutes: Number
 });
 
-// don't create a list, just create the one character from a model of a character that
-// inherits from the charcter schema
+// inherits from the practiceSchema
 var PracticeSession = mongoose.model('practiceSession', practiceSchema);
 
 module.exports = PracticeSession;
