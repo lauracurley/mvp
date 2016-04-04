@@ -1,14 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
+    <title>Meditation Tracker</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css"> <!-- custom styles -->
 
-    <title>Testing Server</title>
+    <!-- JS -->
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/angular-route/angular-route.min.js"></script>
 
-</head>
-<body>
+    <!-- ANGULAR CUSTOM -->
+    <script src="controllers/practiceCtrl.js"></script>
+    <script src="services/PracticeService.js"></script>
+    <script src="angularRoutes.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body ng-app="app" ng-controller="PracticeController">
+    <div class="container">
 
-    we did it!
+      <!-- header -->
+      <nav class="navbar navbar-inverse">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Meditation Tracker</a>
+        </div>
 
-</body>
+        <!-- about this app page -->
+        <ul class="nav navbar-nav">
+            <li><a href="/about">About</a></li>
+        </ul>
+      </nav>
+
+      <!-- meditation tracker content -->
+      <div ng-view></div>
+
+    </div>
+  </body>
 </html>

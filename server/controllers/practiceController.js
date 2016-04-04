@@ -12,7 +12,7 @@ exports.createSession = function(req, res) {
   //   }
   //   res.json(newPracticeSession);
   // });
-  res.sendFile('./client/index.html');
+  res.sendfile('./client/index.html');
 
 };
 
@@ -24,5 +24,5 @@ exports.displayAllSessions = function(req, res) {
   //   console.log(res.json(allCharacters));
   //   res.json(allCharacters);
   // });
-  res.sendFile('./client/index.html');
+  res.sendfile('./client/index.html');
 };
