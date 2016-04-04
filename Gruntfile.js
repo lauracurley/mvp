@@ -11,13 +11,11 @@ module.exports = function(grunt) {
         dest: 'public/dist/built.js',
       },
     },
-
     nodemon: {
       dev: {
         script: 'server.js'
       }
     },
-
     uglify: {
       'my_target': {
         files: {
@@ -25,14 +23,11 @@ module.exports = function(grunt) {
         }
       }
     },
-
     eslint: {
       target: ['client/app.js']
     },
-
     cssmin: {
     },
-
     watch: {
       scripts: {
         files: [
@@ -52,7 +47,6 @@ module.exports = function(grunt) {
     server: {
       port: grunt.option('port') || 4568
     },
-
     shell: {
       prodServer: {
       }
@@ -64,7 +58,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-eslint');
-  grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-contrib-nodemon');
   grunt.loadNpmTasks('grunt-nodemon');
@@ -83,21 +76,4 @@ module.exports = function(grunt) {
     grunt.task.run([ 'watch' ]);
   });
 
-  grunt.registerTask('test', [
-    'mochaTest'
-  ]);
-
-  grunt.registerTask('build', ['concat', 'uglify']);
-
-  grunt.registerTask('upload', function(n) {
-    if (grunt.option('prod')) {
-      // add your production server task here
-      grunt.task.run(['build']);
-    } else {
-      grunt.task.run([ 'server-dev' ]);
-      grunt.task.run(['build']);
-    }
-  });
-
-  grunt.registerTask('deploy', ['eslint', 'test', 'build']);
 };

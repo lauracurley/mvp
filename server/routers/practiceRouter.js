@@ -5,8 +5,7 @@ var practiceController = require('../controllers/practiceController.js');
 // to use for each
 practiceRouter.route('/')
   .post(practiceController.createSession)
-  .get(practiceController.retrieveAllSesssions);
-  // .put(practiceController.updateAll);
+  .get(practiceController.displayAllSessions);
 
 
 // TODO: Implement filters based on time scales (day/month/year)

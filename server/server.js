@@ -5,14 +5,17 @@ var methodOverride = require('method-override'); // delete if not needed later
 var app = express();
 
 var port = process.env.PORT || 4568;
-var dbUri = process.env.MONGOLAB_URI || 'mongodb://localhost/mvp';
+var dbUri = process.env.MONGOLAB_URI ||'mongodb://localhost/mvp';
 // config files
 //var db = require('./config/db');
 
-
 var practiceRouter = require('./routers/practiceRouter');
 
-mongoose.connect(dbUri);
+mongoose.connect(dbUri, function(err, res) {
+  if (err) {
+    console.log('Mongo connection error: ', err);
+  }
+});
 // TODO: learn difference between above and below
 // mongoose.connect(db.url); 
 
@@ -24,10 +27,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // TODO: check if useful
 //app.use(methodOverride('X-HTTP-Method-Override')); 
 
-// Use this to test initial server, then delete
-app.get('/', function(req, res) {
-  res.json({message: 'Example response message on get /'});
-});
+// Use this to test initial server, then delete - working
+// app.get('/', function(req, res) {
+//   res.json({message: 'Example response message on get /'});
+// });
 
 // serve up static files
 app.use(express.static(__dirname + '/client')); 
