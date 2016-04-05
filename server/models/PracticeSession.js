@@ -3,17 +3,23 @@
 var mongoose = require('mongoose');
 
 // creates our schema
-var practiceSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    unique: true
+var PracticeSchema = new mongoose.Schema({
+  // TODO: implement with users
+  // name: {
+  //   type: String,
+  //   unique: true
+  // },
+  minutes: Number,
+  rating: Number,
+  created_at: {
+    type: Date,
   },
-  // TODO: check if created at needs to be made explicit in mongo
-  quality: Number,
-  minutes: Number
+  updated_at: {
+    type: Date
+  }
 });
 
 // inherits from the practiceSchema
-var PracticeSession = mongoose.model('practiceSession', practiceSchema);
+var PracticeSession = mongoose.model('PracticeSession', PracticeSchema);
 
 module.exports = PracticeSession;

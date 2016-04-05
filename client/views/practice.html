@@ -2,4 +2,23 @@
     <h1>Practice Sessions</h1>
 
     <p>{{ test }}</p>
+
+    <form name="practice-session-form" ng-submit="create(practice)" novalidate>
+      <label for="minutes">Minutes:</label>
+      <input id="minutes" type="text" name="minutes" ng-model="practice.minutes" required /><br />
+
+      <label for="rating">Rating (1 to 5) :</label>
+      <input id="rating" type="text" name="rating" ng-model="practice.rating" required /><br />
+
+      <button type="submit"> Submit </button>
+    </form>
+
+    <ul>
+      <!-- Set up the ngrepeat here. -->
+      <li class="practice-session" ng-repeat="entry in data.sessions">
+        <span id="minutes">Minutes: {{ entry.minutes }}</span>
+        <span id="rating">Rating: {{ entry.rating }}</span>
+      </li>
+    </ul>
+
 </div>
