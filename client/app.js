@@ -2,5 +2,6 @@ angular.module('app', [
   'ngRoute', 
   'angularRoutes', 
   'PracticeCtrl', 
-  'PracticeService'
+  'PracticeService',
+  'angularMoment'
 ]);

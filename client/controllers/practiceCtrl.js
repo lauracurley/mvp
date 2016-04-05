@@ -10,37 +10,6 @@ angular.module('PracticeCtrl', [])
     // average rating over all sessions
     $scope.rating = 0;
 
-    // adds a practice session to the database
-    $scope.totalMinutesMeditated = function () {
-      $scope.data.sessions.forEach(function (item) {
-        console.log('This is item', item);
-        $scope.total += item['minutes'];
-      })
-    };
-
-    $scope.avgRating = function () {
-      var count = 0;
-      var allRatings = 0;
-      $scope.data.sessions.forEach(function (item) {
-        count++;
-        allRatings += item['rating'];
-      });
-      $scope.rating = allRatings / count;
-    };
-
-    $scope.create = function () {
-      console.log('scope practice on submit', $scope.practice);
-      Practice.create($scope.practice)
-        .then(function () {
-          $scope.avgRating();
-          $scope.totalMinutesMeditated();
-          $location.path('/');
-        })
-        .catch(function (error) {
-          console.log('Error in creating a session: ', error);
-        });
-    };
-
     // gets all practice sessions from the database
     var getAllSessions = function () {
       Practice.getAll()
@@ -61,5 +30,37 @@ angular.module('PracticeCtrl', [])
     // initialize app by getting all the practice sessions for display
     getAllSessions();
 
-    
+    // adds a practice session to the database
+    $scope.totalMinutesMeditated = function () {
+      $scope.total = 0;
+      $scope.data.sessions.forEach(function (item) {
+        console.log('This is item', item);
+        $scope.total += item['minutes'];
+      })
+    };
+
+    $scope.avgRating = function () {
+      var count = 0;
+      var allRatings = 0;
+      $scope.data.sessions.forEach(function (item) {
+        count++;
+        allRatings += item['rating'];
+      });
+      $scope.rating = Math.floor(allRatings / count);
+    };
+
+    $scope.create = function () {
+      console.log('scope practice on submit', $scope.practice);
+      Practice.create($scope.practice)
+        .then(function () {
+          //$scope.avgRating();
+          //$scope.totalMinutesMeditated();
+          getAllSessions();
+          $location.path('/');
+        })
+        .catch(function (error) {
+          console.log('Error in creating a session: ', error);
+        });
+    };
+ 
 });

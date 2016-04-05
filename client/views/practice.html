@@ -1,5 +1,9 @@
 <div class="jumbotron text-center">
-    <h1>Practice Sessions</h1>
+    <blockquote>
+    Real meditation is death. You must be willing to move into the shuddering that you know represents the last moment of life and the loss of consciousness in this particular form. Ultimately, you must be able to let meditation be that profound.
+    </blockquote>
+
+    <h1>Meditation Tracker</h1>
 
     <p>{{ test }}</p>
 
@@ -16,12 +20,13 @@
     <ul>
       <!-- Set up the ngrepeat here. -->
       <li class="practice-session" ng-repeat="entry in data.sessions">
+        <time class="time">Session Date: {{ entry.created_at | amCalendar }}</time>
         <span id="minutes">Minutes: {{ entry.minutes }}</span>
         <span id="rating">Rating: {{ entry.rating }}</span>
       </li>
     </ul>
 
-    <h3>Meditation karma points for this lifetime: {{ total }}</h3>
-    <h3>On average, your meditations get a {{ rating }} out of 5</h3>
+    <h3>Good karma points for this lifetime: {{ total }}</h3>
+    <h3>On average, your meditations rate a {{ rating }} out of 5</h3>
 
 </div>
