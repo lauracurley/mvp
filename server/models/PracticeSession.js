@@ -11,8 +11,10 @@ var PracticeSchema = new mongoose.Schema({
   // },
   minutes: Number,
   rating: Number,
-  created_at: {
-    type: Date,
+  created_at: { 
+    type: Date, 
+    required: true, 
+    default: Date.now 
   },
   updated_at: {
     type: Date
