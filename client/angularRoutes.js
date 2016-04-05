@@ -3,7 +3,7 @@ angular.module('angularRoutes', [])
 
     $routeProvider
         // home page
-        .when('*', {
+        .when('/', {
             templateUrl: 'views/practice.html',
             controller: 'PracticeController'
         })
