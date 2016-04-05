@@ -33,7 +33,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // });
 
 // serve up static files
-app.use(express.static(__dirname + '/client')); 
+console.log('Directory of files being served: ', (__dirname).slice(0, -7) + '/client');
+app.use(express.static( (__dirname).slice(0, -7) + '/client')); 
 
 app.use('/', practiceRouter);
 

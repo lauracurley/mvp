@@ -1,6 +1,6 @@
 angular.module('app', [
   'ngRoute', 
   'angularRoutes', 
-  'practiceCtrl', 
+  'PracticeCtrl', 
   'PracticeService'
 ]);
