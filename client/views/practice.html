@@ -7,22 +7,22 @@
 
     <p>{{ test }}</p>
 
-    <form name="practice-session-form" ng-submit="create(practice)" novalidate>
-      <label for="minutes">Minutes:</label>
-      <input id="minutes" type="text" name="minutes" ng-model="practice.minutes" required /><br />
+    <form class="center-block" name="practice-session-form" ng-submit="create(practice)" novalidate>
+      <label class="split-left" for="minutes">Minutes:</label>
+      <input class="split-left"id="minutes" type="text" name="minutes" ng-model="practice.minutes" required />
 
-      <label for="rating">Rating (1 to 5) :</label>
-      <input id="rating" type="text" name="rating" ng-model="practice.rating" required /><br />
+      <label class="split-left"for="rating">Rating (1 to 5) :</label>
+      <input class="split-left marg"id="rating" type="text" name="rating" ng-model="practice.rating" required />
 
-      <button type="submit"> Submit </button>
+      <button class="split-left btn btn-primary"type="submit"> Submit </button>
     </form>
 
-    <ul>
+    <ul >
       <!-- Set up the ngrepeat here. -->
-      <li class="practice-session" ng-repeat="entry in data.sessions">
+      <li class="practice-session " ng-repeat="entry in data.sessions">
         <time class="time">Session Date: {{ entry.created_at | amCalendar }}</time>
         <span id="minutes">Minutes: {{ entry.minutes }}</span>
-        <span id="rating">Rating: {{ entry.rating }}</span>
+        <span id="rating ">Rating: {{ entry.rating }}</span>
       </li>
     </ul>
 
